@@ -7,7 +7,6 @@ Mage::app('admin');
 /*** POST DATA ***/
 $step = $_POST['step'];
 $store_id = strval($_POST['store_id']);
-$batch_amount = $_POST['batch_amount'];
 $timestamp = $_POST['timestamp'];
 
 /*** ATTRIBUTES FOR CUSTOM FIELDS ***/
@@ -19,7 +18,7 @@ $products = Mage::getModel('catalog/product')
     ->addStoreFilter(Mage::app()->getStore($store_id))
     ->addAttributeToSelect('*')
     ->addAttributeToFilter('bigcommerce_id', ['neq' => ''])
-    ->setPageSize($batch_amount)
+    ->setPageSize(200)
     ->setCurPage($step);
 
 $total_products = $products->getSize();
