@@ -13,7 +13,6 @@
     <![endif]-->
     <div class="container">
         <form id="export-products">
-            <input type="hidden" value="1" name="step">
             <fieldset>
                 <div class="form-group">
                     <label for="store-id">Store</label>
@@ -39,7 +38,7 @@
                 const timestamp = Date.now();
 
                 $this.find('fieldset').prop('disabled', true);
-                process_form(0, store_id, timestamp);
+                process_form(1, store_id, timestamp);
             });
 
             const process_form = function(step, store_id, timestamp) {
